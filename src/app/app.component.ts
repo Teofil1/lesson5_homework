@@ -1,6 +1,6 @@
 import { Country } from './model/country';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Registration } from './model/registration';
 import { CustomRegistrationValidators } from './validator/validators';
 
@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
   availableCountries: string[] = [];
 
   registrationForm = new FormGroup({
-    // number: new FormControl('', Validators.required, CustomValidators.getForbiddenValidator(['123', '456'])),
     number: new FormControl('', [Validators.required, Validators.pattern("^[A-Z]{2}[0-9]{4}[A-Z]{2}$")]),
     country: new FormControl('', Validators.required),
     date: new FormControl('', [Validators.required, CustomRegistrationValidators.registrationDateValidator]),
